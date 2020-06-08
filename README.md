@@ -8,8 +8,7 @@
 * [Overview and Motivation](#overview-and-motivation)
 * [Data](#data)
   * [Data Preprocessing](#data-preprocessing)
-  * [EDA](#eda)
-<!-- * [Exploration](#exploration) -->
+  * [Exploration](#exploration)
 * [Modeling](#modeling)
 * [Conclusion](#conclusion)
 
@@ -36,15 +35,7 @@ CSV processed with Pandas, NumPy, skitLearn, then NaN`s were removed. The data w
 
 Then I decided to look into attack or not classification and attack type classification, and select the best model for each.
 
-<!-- ## Exploration
-This section contains plots that demonstrate the types of information that can be gleaned from this data set.
-
-This is a heatmap of the correlation matrix and it shows how the features are correlated with each other and with the target.
-<div align='left'>
-<img src="figures/heatmap.png">
-</div> -->
-
-## EDA
+## Exploration
 <div align='left'>
 <img src='figures/attack_or_not.png'>
 </div>
@@ -69,7 +60,7 @@ Determine which model should be used to classify category attacks and intrusions
 </div>
 
 
-Based on the f1 cross-validation score of both classifications, I chose as my model the Random forest and scored it on the testing set. 
+Based on the f1 cross-validation score of both classifications, I chose as my model the Random forest and scored it on the testing set. F1 score (weighted average of the precision and recall) is the primary evaluation metric on testing data to show the performance of the trained model. The Random Forest model marginally outperformed the other model in both classificati9ons. 
 
 These are the feature importances for attack or not classification:
 <div align='left'>
@@ -81,12 +72,8 @@ And these are the feature importances for the attack type classification:
 <img src='figures/fi_attack_type.png'>
 </div>
 
-<!-- And the confusion matrix:
-<div align='left'>
-<img src='figures/confusion-matrix.png'>
-</div> -->
 
-F1 score (weighted average of the precision and recall) is the primary evaluation metric on testing data to show the performance of the trained model. The Random Forest model marginally outperformed the other model in both classificati9ons. 
+The plot shows that ‘sttl is the most important feature in both classifications because once we remove the ‘sttl’ column of the training data, leaving the target and all other columns in place, the decrease of the accuracy score of predictions is around 0.20 for both, which is a significant finding.
 
 
 ## Conclusion
