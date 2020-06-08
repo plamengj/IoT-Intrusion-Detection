@@ -11,8 +11,6 @@
   * [EDA](#eda)
 <!-- * [Exploration](#exploration) -->
 * [Modeling](#modeling)
-  * [Attack type classfication](#attack-type-classfication)
-  * [Attack or normal classfication](#attack-or-normal-classfication)
 * [Conclusion](#conclusion)
 
 
@@ -25,7 +23,13 @@ Moreover, IoT traditional network security solutions may not be directly applica
 ### Description
 UNSW-NB15 is an IoT-based network traffic data set with different categories for normal activities and malicious attack behaviors. 
 
-The data contains 400,000+ rows and two columns (an URL & whether it’s malicious or not) that translates to 400,000+ observations and 1 feature (the URL itself). The ratio of benign to malicious URLs is 3:1 in the dataset. I have used pandas and dataframes to examine, plot and analyze this data.
+The raw network packets of the UNSW-NB 15 dataset was created by the IXIA PerfectStorm tool in the Cyber Range Lab of the Australian Centre for Cyber Security (ACCS) for generating a hybrid of real modern normal activities and synthetic contemporary attack behaviours.
+
+Tcpdump tool is utilised to capture 100 GB of the raw traffic (e.g., Pcap files). This dataset has nine types of attacks, namely, Fuzzers, Analysis, Backdoors, DoS, Exploits, Generic, Reconnaissance, Shellcode and Worms. The Argus, Bro-IDS tools are used and twelve algorithms are developed to generate totally 49 features with the class label.
+
+A partition from this dataset is configured as a training set and testing set, namely, UNSW_NB15_training-set.csv and UNSW_NB15_testing-set.csv respectively.
+
+The number of records in the training set is 175,341 records and the testing set is 82,332 records from the different types, attack and normal.Figure 1 and 2 show the testbed configuration dataset and the method of the feature creation of the UNSW-NB15, respectively.
 
 ## Data Preprocessing
 CSV processed with Pandas, NumPy, skitLearn, then NaN`s were removed. The data was split into training and testing set. And then finally I did some Encoding Transformation.
@@ -45,10 +49,13 @@ This is a heatmap of the correlation matrix and it shows how the features are co
 <img src='figures/attack_or_not.png'>
 </div>
 
+This dataset has nine types of attacks: Fuzzers, Analysis, Backdoors, DoS, Exploits, Generic, Reconnaissance, Shellcode and Worms. s
+
 <div align='left'>
 <img src='figures/attack_types.png'>
 </div>
 
+The ratio of benign to malicious packets is 1:2 in the dataset.
 
 ## Modeling
 Determine which model should be used to classify category attacks and intrusions detection on IoT networks. Also discover relevant features for model inspection.
@@ -78,12 +85,6 @@ And these are the feature importances for the attack type classification:
 <div align='left'>
 <img src='figures/confusion-matrix.png'>
 </div> -->
-
-## Attack Type Classification
-This dataset has nine types of attacks: Fuzzers, Analysis, Backdoors, DoS, Exploits, Generic, Reconnaissance, Shellcode and Worms. 
-
-## Attack or Normal Classification
-
 
 F1 score (weighted average of the precision and recall) is the primary evaluation metric on testing data to show the performance of the trained model. The Random Forest model marginally outperformed the other model in both classificati9ons. 
 
