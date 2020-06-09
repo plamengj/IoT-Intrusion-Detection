@@ -1,4 +1,4 @@
-# IoT-Intrusion-Detection
+# Internet of Things (IoT) Intrusion Detection
 
 ## Plamen Dzhelepov
 [Linkedin](https://www.linkedin.com/in/pdzhelepov) | [Github](https://github.com/plamengj)
